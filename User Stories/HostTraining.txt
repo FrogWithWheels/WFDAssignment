@@ -1,0 +1,21 @@
+Feature: Host Training
+	Scenario: Posting new training when logged in.
+	Given that I am logged in.
+	When I access the website.
+	I can post new training opportunities.
+
+	Scenario: Can't post training when not logged in.
+	Given that I am not logged in.
+	When I access the website.
+	I can not post new training.
+	I can view current training opportunities.
+
+	Scenario: Reviewing training applications.
+	Given that I am logged in.
+	When I access a training post.
+	I can view, accept or deny applications.
+
+	Scenario: Not accessing training applications.
+	Given that I am not logged in.
+	When I access the website.
+	I cannot view training applications.

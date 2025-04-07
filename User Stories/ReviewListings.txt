@@ -1,0 +1,11 @@
+Feature: Review Listings
+	Scenario: Can review job applications.
+	Given there are applications and I am logged in.
+	When I access the job listings.
+	I can review, deny or accept job applications.
+
+	Scenario: Can't review job applications.
+	Given there are applications and I am not logged in.
+	When I access the website.
+	I can see job listings.
+	I can not see job applications.

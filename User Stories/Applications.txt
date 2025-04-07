@@ -1,0 +1,11 @@
+Feature: Applications
+	Scenario: Only show listings when not logged in.
+	Given that I am not logged in.
+	When I open the website.
+	I can see the job listings.
+	And I cannot submit any applications.
+
+	Scenario: Allow applications when logged in.
+	Given that I am logged in.
+	When I open the website.
+	I can submit applications to job listings.

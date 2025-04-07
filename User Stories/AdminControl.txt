@@ -1,0 +1,15 @@
+Feature: Admin access.
+	Scenario: Can view job data.
+	Given there are job listings and I am logged in as admin.
+	When I access the job listings.
+	I can view data and remove the listing if necessary.
+
+	Scenario: Can view candidate applications.
+	Given there are candidate applications and I am logged in as admin.
+	When I access the job listings.
+	I can view applications and remove them if necessary.
+
+	Scenario: Can view training.
+	Given there are training posts and I am logged in as admin.
+	When I access the training.
+	I can view data, applications and remove either if necessary.
