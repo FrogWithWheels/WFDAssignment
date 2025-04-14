@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Candidate
@@ -10,7 +10,7 @@ def index(request):
 # page for displaying account information
 def account(request, candidate_id):
     # saving specific user to variable
-    output = Candidate.objects.get(pk=candidate_id)
+    output = get_object_or_404(Candidate, pk=candidate_id)
 
     # loading the template
     template = loader.get_template("recruitment/index.html")
