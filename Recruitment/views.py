@@ -3,11 +3,20 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Candidate
 
+# index page 
 def index(request):
     return HttpResponse("Recruitment page.")
 
+# page for displaying account information
 def account(request, candidate_id):
-    output = Candidate.objects.get(pk=1)
+    # saving specific user to variable
+    output = Candidate.objects.get(pk=candidate_id)
+
+    # loading the template
     template = loader.get_template("recruitment/index.html")
+
+    # loading context to send to template
     context = {"user": output}
+
+    # displaying page
     return HttpResponse(template.render(context, request))
