@@ -124,3 +124,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/Recruitment/index'
+
+AUTH_USER_MODEL = 'Recruitment.UserModel'
+
+AUTHENTICATION_BACKENDS = ["./Recruitment/backend/customAuthentication"]

@@ -8,46 +8,29 @@ class UserModel(AbstractUser):
 		("TRAINER", "trainer"),
 		("COMPANY", "company"),
 	)
+	email = models.CharField(max_length=200)
+	address = models.CharField(max_length=200)
+	phone = models.CharField(max_length=200)
+
+	# for checking model
+	def __str__(self):
+		return self.username
 
 # candidate model
 class Candidate(models.Model):
 	# entries
-	name = models.CharField(max_length=200)
-	surname = models.CharField(max_length=200)
-	email = models.CharField(max_length=200)
-	phone = models.CharField(max_length=200)
-	address = models.CharField(max_length=200)
+	user = models.OneToOneField(UserModel, on_delete=models.CASCADE, primary_key=True)
 	skills = models.CharField(max_length=200)
-	username = models.CharField(max_length=200)
-	password = models.CharField(max_length=200)
-
-	# for checking model
-	def __str__(self):
-		return self.name
 
 # trainer model
 class Trainer(models.Model):
 	# entries
-	name = models.CharField(max_length=200)
-	surname = models.CharField(max_length=200)
-	email = models.CharField(max_length=200)
-	phone = models.CharField(max_length=200)
-	address = models.CharField(max_length=200)
+	user = models.OneToOneField(UserModel, on_delete=models.CASCADE, primary_key=True)
 	qualifications = models.CharField(max_length=200)
-
-	# for checking model
-	def __str__(self):
-		return self.name
 
 # company model
 class Company(models.Model):
-	name = models.CharField(max_length=200)
-	email = models.CharField(max_length=200)
-	phone = models.CharField(max_length=200)
-	location = models.CharField(max_length=200)
-
-	def __str__(self):
-		return self.name
+	user = models.OneToOneField(UserModel, on_delete=models.CASCADE, primary_key=True)
 
 # job model
 class Job(models.Model):
