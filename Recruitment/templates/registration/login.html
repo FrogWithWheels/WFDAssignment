@@ -1,19 +1,27 @@
+<!-- login page -->
 <h2>Log in</h2>
+<!-- form start -->
 <form method="POST" action="{% url 'login' %}">
+	<!-- token -->
 	{% csrf_token %}
+	<!-- div for username text field -->
 	<div class="form-group">
 		<label class="text-primary text-dark font-weight-bold">Enter Username</label>
 		<input type="text" class="form-control" name="username" placeholder="Enter Username">
 	</div>
 
+	<!-- break -->
 	<br>
 
+	<!-- div for password text field -->
 	<div class="form-group">
 		<label class="text-primary text-dark font-weight-bold">Enter Password</label>
 		<input type="password" class="form-control" name="password" placeholder="Enter Password">
 	</div>
 
+	<!-- break -->
 	<br>
 	
+	<!-- button for submission -->
 	<button type="submit" class="btn btn-primary btn-lg">Log in</button>
 </form>

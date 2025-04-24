@@ -1,3 +1,4 @@
+# imports
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.template import loader
@@ -22,7 +23,9 @@ def account(request, candidate_id):
     # displaying page
     return HttpResponse(template.render(context, request))
 
+# login page
 def login(request):
+    # post
     if request.method == 'POST':
         username = request.POST['username']
         password = request.method = request.POST['password']

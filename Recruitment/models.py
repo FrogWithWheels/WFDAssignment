@@ -1,3 +1,4 @@
+# imports
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -48,3 +49,48 @@ class Job(models.Model):
 	# for checking model
 	def __str__(self):
 		return self.name
+
+# training model
+class Training(models.Model):
+	# entries
+	title = models.CharField(max_length=200)
+	description = models.CharField(max_length=200)
+	qualification = models.CharField(max_length=200)
+	duration = models.CharField(max_length=200)
+	date = models.DateTimeField("Date")
+
+	# foreign key
+	trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
+
+	# for checking model
+	def __str__(self):
+		return self.name
+
+# enrollment model
+class Enrollment(models.Model):
+	# entries
+	status = models.CharField(max_length=200)
+	date = models.DateTimeField("Date")
+
+	# foreign keys
+	trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
+	candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+
+	# for checking model
+	def __str__(self):
+		return self.name
+
+# application model
+class Application(models.Model):
+	# entries
+	status = models.CharField(max_length=200)
+	date = models.DateTimeField("Date")
+
+	# foreign keys
+	trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
+	job = models.ForeignKey(Job, on_delete=models.CASCADE)
+
+	# for checking model
+	def __str__(self):
+		return self.name
+
