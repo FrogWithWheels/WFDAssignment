@@ -1,7 +1,5 @@
 from django.contrib import admin
-from Recruitment.models import Candidate
-from Recruitment.models import Trainer
+from Recruitment.models import UserModel
 
 # registering models for admin control
-admin.site.register(Candidate)
-admin.site.register(Trainer)
+admin.site.register(UserModel)
