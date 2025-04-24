@@ -5,5 +5,6 @@ from . import views
 # pages
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<int:candidate_id>/", views.account, name="account")
+    path("<int:candidate_id>/", views.account, name="account"),
+    path("login", views.login, name="login"),
 ]

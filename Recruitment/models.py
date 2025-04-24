@@ -1,4 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+# abstract user that others extend from
+class UserModel(AbstractUser):
+	USER_TYPES = (
+		("CANDIDATE", "candidate"),
+		("TRAINER", "trainer"),
+		("COMPANY", "company"),
+	)
 
 # candidate model
 class Candidate(models.Model):
@@ -9,6 +18,8 @@ class Candidate(models.Model):
 	phone = models.CharField(max_length=200)
 	address = models.CharField(max_length=200)
 	skills = models.CharField(max_length=200)
+	username = models.CharField(max_length=200)
+	password = models.CharField(max_length=200)
 
 	# for checking model
 	def __str__(self):
